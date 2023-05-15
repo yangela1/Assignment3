@@ -15,12 +15,12 @@ const updatePaginationDiv = (currentPage, numPages) => {
   
   if (startButton < 1) {
     startButton = 1;
-    endButton = startButton + numBtns - 1;
+    endButton = Math.min(numPages, startButton + numBtns - 1);
   }
   
   if (endButton > numPages) {
     endButton = numPages;
-    startButton = endButton - numBtns+ 1;
+    startButton = Math.max(1, endButton - numBtns + 1);
   }
   
   for (let i = startButton; i <= endButton; i++) {
